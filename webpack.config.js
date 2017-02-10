@@ -12,6 +12,7 @@ module.exports = {
         hot: true,
         inline: true,
         contentBase: "./src",
+
         proxy: {
             '/sms-web/*': {
                 target: 'http://localhost:9099',
