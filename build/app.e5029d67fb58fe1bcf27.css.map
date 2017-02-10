@@ -1,1 +1,0 @@
-{"version":3,"file":"app.e5029d67fb58fe1bcf27.css","sources":["webpack:////./src/src/main.scss"],"sourcesContent":["@charset 'utf-8';\r\n$color:gray;\r\nbody {\r\n    background: $color;\r\n}\n\n\n// WEBPACK FOOTER //\n// /./src/src/main.scss"],"mappings":"AAEA;AACA;","sourceRoot":""}

@@ -9,10 +9,18 @@ const vendors = ['react', 'react-dom'];
 module.exports = {
     devtool: 'cheap-eval-source-map',
     devServer: {
+        port: 3001,
         hot: true,
+        hotOnly: true,
         inline: true,
+        watchContentBase: true,
+        watchOptions: {
+            poll: true
+        },
         contentBase: "./src",
-
+        compress: true,
+        historyApiFallback: true,
+        clientLogLevel: "none",
         proxy: {
             '/sms-web/*': {
                 target: 'http://localhost:9099',
@@ -22,7 +30,6 @@ module.exports = {
 
         }
     },
-    // devtool: "source-map",    //生成sourcemap,便于开发调试
     entry: {
         app: "./src/main.js", //
         vendors: vendors //第三方库
@@ -54,11 +61,11 @@ module.exports = {
             ]
 
         }, {
-            test: /\.scss$/,
+            test: /\.less$/,
             use: [
                 { loader: "style-loader" },
                 { loader: "css-loader" },
-                { loader: "sass-loader" },
+                { loader: "less-loader" },
             ]
         }, {
             test: /\.(png|jpg|woff|woff2|eot|ttf|svg)/,

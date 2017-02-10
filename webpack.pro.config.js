@@ -53,7 +53,7 @@ module.exports = {
 
 
         }, {
-            test: /\.scss$/,
+            test: /\.less$/,
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: [{
@@ -61,7 +61,7 @@ module.exports = {
                         options: { sourceMap: true }
                     },
                     {
-                        loader: 'sass-loader',
+                        loader: 'less-loader',
                         options: { sourceMap: 'compressed' }
                     }
                 ]
