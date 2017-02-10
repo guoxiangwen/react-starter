@@ -17,11 +17,13 @@ module.exports = {
             }
         }
     },
-    devtool: "source-map", //生成sourcemap,便于开发调试
+    devtool: "cheap-module-source-map", //生成sourcemap,便于开发调试
+    //入口文件
     entry: {
         app: "./src/main.js",
         vendors: vendors //第三方库
-    }, //入口文件
+    },
+    //输入文件
     output: {
         path: path.join(__dirname, "build"),
         publicPath: "./",
@@ -29,32 +31,47 @@ module.exports = {
         chunkFilename: "[id].[hash].bundle.js"
     },
     resolve: {
-        extensions: ["", ".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        extensions: [".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
     },
     module: {
         //各种加载器，即让各种文件格式可用require引用
-        loaders: [{
-                test: /\.js|jsx$/,
-                loader: ["babel"],
-                exclude: "/node_modules/",
-                query: {
-                    presets: ['es2015', 'react']
-                }
-            },
-            {
-                test: /\.css$/,
-                exclude: "/node_modules/",
-                loader: ExtractTextPlugin.extract("css-loader")
-            },
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("css!sass")
-            },
-            {
-                test: /\.(png|jpg|woff|woff2|eot|ttf|svg)/,
-                loader: 'url-loader?limit=8192'
+        rules: [{
+            test: /\.js|jsx$/,
+            loader: "babel-loader",
+            exclude: "/node_modules/",
+            options: {
+                presets: ['es2015', 'react']
             }
-        ]
+        }, {
+            test: /\.css$/,
+            exclude: "/node_modules/",
+            loader: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader",
+                publicPath: "/build"
+            })
+
+
+        }, {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [{
+                        loader: 'css-loader',
+                        options: { sourceMap: true }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: { sourceMap: 'compressed' }
+                    }
+                ]
+            })
+        }, {
+            test: /\.(png|jpg|woff|woff2|eot|ttf|svg)/,
+            use: [
+                { loader: "url-loader?limit=40000" }
+            ]
+        }]
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
@@ -71,12 +88,16 @@ module.exports = {
             },
             except: ['$super', '$', 'exports', 'require'] //排除关键字
         }),
-        // new ExtractTextPlugin("styles.css"),
-        new ExtractTextPlugin("[name].[hash].css"),
-        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendors", /* filename= */ "vendors.[hash].bundle.js", Infinity),
+        new ExtractTextPlugin({
+            filename: "[name].[hash].css",
+            disable: false,
+            allChunks: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendors.[hash].bundle.js' }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: 'src/index.html',
+            template: 'src/index.template.html',
+            title: 'fuck',
             chunks: ['app', 'vendors'],
             minify: {
                 removeComments: true,

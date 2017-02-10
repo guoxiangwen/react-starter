@@ -1,5 +1,6 @@
 import { render } from 'react-dom';
 import React, { Component, PropTypes } from 'react';
+import './main.scss';
 
 class Parent extends Component {
     constructor(props) {
@@ -23,12 +24,9 @@ class Parent extends Component {
 
     }
 
-
-
     componentWillUpdate(nextProps, nextState) {
 
     }
-
     componentDidUpdate(prevProps, prevState) {
 
     }
@@ -52,22 +50,27 @@ class Parent extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <h1>{this.state.text}</h1>
-                <Child textOnChange={this.handleTextChange.bind(this)} text={this.state.subText} />
-                <OtherChild otherTextChange={this.handleOtherTextChange.bind(this)} text={this.state.otherSubText} />
-            </div>
+        return ( <
+            div >
+            <
+            h1 > { this.state.text } < /h1>  <
+            Child textOnChange = { this.handleTextChange.bind(this) }
+            text = { this.state.subText }
+            />  <
+            OtherChild otherTextChange = { this.handleOtherTextChange.bind(this) }
+            text = { this.state.otherSubText }
+            />  <
+            /div>
         );
     }
 }
 
 class Child extends Component {
     constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this)
-    }
-    //改变父元素的state
+            super(props);
+            this.handleClick = this.handleClick.bind(this)
+        }
+        //改变父元素的state
     handleClick() {
 
     }
@@ -81,21 +84,13 @@ class Child extends Component {
         return true
     }
     render() {
-        return (
-            <div onClick={this.props.textOnChange}>
-                {this.props.text}
-            </div>
-        );
+        return ( < div onClick = { this.props.textOnChange } > { this.props.text } < /div>);
     }
 }
 
 class OtherChild extends Component {
     render() {
-        return (
-            <div onClick={this.props.otherTextChange}>
-                {this.props.text}
-            </div>
-        );
+        return ( < div onClick = { this.props.otherTextChange } > { this.props.text } < /div>);
     }
 }
 
@@ -106,7 +101,6 @@ Child.propTypes = {
     text: React.PropTypes.string
 };
 
-render(
-    <Parent />,
+render( < Parent / > ,
     document.getElementById('app')
 )

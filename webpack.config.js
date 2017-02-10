@@ -32,28 +32,38 @@ module.exports = {
         filename: "[name].bundle.js"
     },
     resolve: {
-        extensions: ["", ".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        extensions: [".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
     },
     module: {
         //各种加载器，即让各种文件格式可用require引用
-        loaders: [{
+        rules: [{
             test: /\.js|jsx$/,
-            loader: ["babel"],
+            loader: "babel-loader",
             exclude: "/node_modules/",
-            query: {
+            options: {
                 presets: ['es2015', 'react']
             }
         }, {
             test: /\.css$/,
             exclude: "/node_modules/",
             // loader: ExtractTextPlugin.extract("css-loader")
-            loader: "style-loader!css-loader"
+            use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" }
+            ]
+
         }, {
             test: /\.scss$/,
-            loader: "style!css!sass"
+            use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" },
+                { loader: "sass-loader" },
+            ]
         }, {
             test: /\.(png|jpg|woff|woff2|eot|ttf|svg)/,
-            loader: 'url-loader?limit=40000'
+            use: [
+                { loader: "url-loader?limit=40000" }
+            ]
         }]
     },
     plugins: [
