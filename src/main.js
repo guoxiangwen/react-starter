@@ -90,7 +90,7 @@ class Child extends Component {
 
 class OtherChild extends Component {
     render() {
-        return ( < div onClick = { this.props.otherTextChange } > { this.props.text } < /div>);
+        return ( <div onClick = { this.props.otherTextChange }> { this.props.text } < /div>);
     }
 }
 
@@ -101,6 +101,6 @@ Child.propTypes = {
     text: React.PropTypes.string
 };
 
-render( < Parent / > ,
+render( < Parent /> ,
     document.getElementById('app')
 )
