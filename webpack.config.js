@@ -68,10 +68,11 @@ module.exports = {
                 { loader: "less-loader" },
             ]
         }, {
-            test: /\.(png|jpg|woff|woff2|eot|ttf|svg)/,
-            use: [
-                { loader: "url-loader?limit=40000" }
-            ]
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            loader: "url-loader",
+            query: {
+                limit: 10000
+            }
         }]
     },
     plugins: [

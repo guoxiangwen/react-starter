@@ -1,22 +1,7 @@
 import { render } from 'react-dom';
-import React, { Component, PropTypes } from 'react';
-import './main.less';
+import React, { Component } from 'react';
+import App from './components/app';
 
-
-class Main extends Component {
-    render() {
-        return (
-            <div>
-            </div>
-        );
-    }
-}
-
-Main.propTypes = {
-
-};
-
-render(
-    <Main/>,
+render( <App / > ,
     document.getElementById('app')
 )
