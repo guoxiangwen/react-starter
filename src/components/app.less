@@ -1,6 +1,55 @@
 @charset 'utf-8';
-@color:green;
-body {
-    // background: @color url(../imgs/logo.jpg);
-    font-size: 26px;
+
+.app-container{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    header{
+        width: 100%;
+        height: 300px;
+        padding: 10px 0;
+        box-sizing: border-box;
+        background: #222;
+        color: #fff;
+        .app-logo{
+            animation: app-logo-spin infinite 20s linear;
+            max-width: 200px;
+        }
+    }
+    main>div{
+        box-sizing: border-box;        
+        width: 100%;
+        min-height: 500px;
+        padding: 20px 20px;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        section{
+            height: 200px;
+            width: 30%;
+            border: 1px darkgray dashed;
+            padding: 10px 10px;
+            .app-item{
+                text-decoration: none;
+            }
+            .app-item-logo{
+                max-width: 100px;
+                border-radius: 50%;
+            }
+            p{
+                word-break: break-all;
+                overflow: hidden;
+                line-height: 24px;
+                color:#555;
+                font-size: 14px;
+            }
+        }
+    }
+};
+@keyframes app-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
