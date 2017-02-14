@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/guoxiangwen/react-starter.svg?branch=webpack2)](https://travis-ci.org/guoxiangwen/react-starter)
+
+
 # react-starter
 a seed project with react+webpack+es6+sass to let you create app easily more than searching on the internet
 
