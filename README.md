@@ -1,5 +1,9 @@
+
+[![Build Status](https://travis-ci.org/guoxiangwen/react-starter.svg?branch=webpack2)](https://travis-ci.org/guoxiangwen/react-starter)
+
+
 # react-starter
-a seed project with react+webpack+es6+sass to let you create app easily more than searching on the internet
+a seed project with react+webpack+es6+less to let you create app easily more than searching on the internet
 
 # how to start
 1. `npm install --安装`
