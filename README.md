@@ -3,8 +3,7 @@
 
 
 # react-starter
-a seed project with react+webpack+es6+less to let you create app easily more than searching on the internet
-
+react+webpack+es6+less+babel
 # how to start
 1. `npm install --安装`
 2. `npm test --测试`
