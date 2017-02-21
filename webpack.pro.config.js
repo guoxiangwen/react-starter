@@ -47,7 +47,15 @@ module.exports = {
             exclude: "/node_modules/",
             loader: ExtractTextPlugin.extract({
                 fallback: "style-loader",
-                use: "css-loader",
+                use: [
+                    {
+                        loader:'css-loader',
+                        options:{
+                            sourceMap:true,
+                            minimize:true
+                        }
+                    }
+                ],
                 publicPath: "/build"
             })
 
@@ -58,7 +66,7 @@ module.exports = {
                 fallback: 'style-loader',
                 use: [{
                         loader: 'css-loader',
-                        options: { sourceMap: true }
+                        options: { sourceMap: true,minimize:true }
                     },
                     {
                         loader: 'less-loader',
@@ -77,7 +85,7 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
-            compressor: {
+            compress: {
                 screw_ie8: true,
                 warnings: false
             },
