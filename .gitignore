@@ -40,4 +40,4 @@ jspm_packages
 coverage
 build
 .vscode
-
+test/e2e/reports
