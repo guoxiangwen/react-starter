@@ -35,10 +35,11 @@ class NotFound extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <p>404</p>
-            </div>
+        return ( <
+            div >
+            <
+            p > 404 < /p> < /
+            div >
         );
     }
 }
