@@ -22,7 +22,7 @@ module.exports = {
             selenium_port: 4444,
             selenium_host: 'localhost',
             silent: true,
-            "screenshots": {
+            screenshots: {
                 "enabled": false,
                 "path": ""
             },
