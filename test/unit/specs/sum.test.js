@@ -1,8 +1,8 @@
-import sum from './../src/utils/sum';
+import sum from './../../../src/utils/sum';
 
 describe('add', () => {
     it('加法测试:', () => {
-        expect(sum(1, 2)).not.toBe(9);
+        expect(sum(1, 2)).not.toBe(3);
     });
     test('合并对象测试:', () => {
         let data = { one: 1 };

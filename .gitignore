@@ -38,5 +38,9 @@ jspm_packages
 
 .idea/
 coverage
+selenium-debug.log
 build
 .vscode
+test/e2e/reports
+test/unit/coverage
+
