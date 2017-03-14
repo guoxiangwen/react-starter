@@ -8,6 +8,7 @@
     "scripts": {
         "lint": "eslint src/**/*.jsx",
         "e2e": "node test/e2e/runner.js",
+        "unit": "jest",
         "test": "npm run e2e && jest",
         "build": "node build.js && webpack --config ./webpack.pro.config.js  --display-error-details --progress",
         "start": "webpack-dev-server"
@@ -52,6 +53,9 @@
         "bail": true,
         "automock": true,
         "notify": true,
-        "collectCoverage": true
+        "collectCoverage": true,
+        "coverageDirectory": "test/unit/coverage",
+        "coveragePathIgnorePatterns": ["/node_modules/", "/test/e2e/"],
+        "testPathIgnorePatterns": ["/node_modules/", "/test/e2e/"]
     }
 }
