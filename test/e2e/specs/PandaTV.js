@@ -12,6 +12,8 @@ module.exports = {
             .url("http://www.panda.tv/all")
             .waitForElementVisible(".pd-sc-container", 3000)
             .maximizeWindow()
+            .setWindowPosition(0, 0)            
+            .resizeWindow(1280, 800)
             //进入熊猫星秀tab
             .click("ul.list-header-hots > li:nth-child(3) > a", function (res) {
                 console.log(res)
@@ -30,7 +32,7 @@ module.exports = {
             })
             //刷新
             .refresh()
-            .setValue('textarea.room-chat-texta', '主播跳支舞')
+            .setValue('textarea.room-chat-texta', '~~~~~~主播跳支舞~~~~~~')
             .click('div.room-chat-send',function(){})
             
             // .assert.elementPresent('.app-container')
