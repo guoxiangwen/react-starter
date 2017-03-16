@@ -10,10 +10,9 @@ module.exports = {
 
         browser
             .url("http://localhost:3001")
-            .waitForElementVisible('section', 2000)
-            .click("main > div > section:first-child > a", function(res) {
-                console.log(res)
-            })
-
-//     }
-// }
+            .waitForElementVisible('section:first-child', 2000)
+            .expect.element("header h2").text.to.equal('React Starter')
+            // .click("main > div > section:first-child > a")       
+            
+    }
+}
