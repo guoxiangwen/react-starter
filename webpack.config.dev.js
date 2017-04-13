@@ -7,7 +7,7 @@ const WebpackBrowserPlugin = require('webpack-browser-plugin');
 
 const vendors = ['react', 'react-dom', 'react-router'];
 module.exports = {
-    devtool: 'cheap-eval-source-map',
+    // devtool: 'cheap-eval-source-map', //关闭source-map 可减少体积
     devServer: {
         port: 3001,
         hot: true,
@@ -78,6 +78,20 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new WebpackBrowserPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                screw_ie8: true,
+                warnings: false
+            },
+            mangle: {
+                screw_ie8: true
+            },
+            output: {
+                comments: false,
+                screw_ie8: true
+            },
+            except: ['$super', '$', 'exports', 'require'] //排除关键字
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendors'],
             filename: "vendors.bundle.js",
