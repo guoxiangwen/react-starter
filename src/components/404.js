@@ -36,15 +36,15 @@ class NotFound extends Component {
 
     render() {
         return (
-            <div >
-                <p> 404 </p>
-            </div >
+        <div>
+            <p> 404 </p> 
+        </div >
         );
     }
 }
 
 NotFound.propTypes = {
 
-};
+                };
 
 export default NotFound;

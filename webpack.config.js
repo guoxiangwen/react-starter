@@ -5,7 +5,7 @@ let path = require('path');
 // let ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
 
-const vendors = ['react', 'react-dom'];
+const vendors = ['react', 'react-dom', 'react-router'];
 module.exports = {
     devtool: 'cheap-eval-source-map',
     devServer: {
