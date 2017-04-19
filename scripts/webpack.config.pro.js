@@ -4,6 +4,9 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let ManifestPlugin = require('webpack-manifest-plugin');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
 
 const vendors = ['react', 'react-dom']
 module.exports = {
@@ -26,7 +29,7 @@ module.exports = {
     },
     //输入文件
     output: {
-        path: path.join(__dirname, "build"),
+        path: path.join(__dirname, "../build"),
         publicPath: "./",
         filename: "static/js/[name].[chunkhash:8].bundle.js",
         chunkFilename: "static/js/[name].[chunkhash:8].bundle.js"
@@ -83,9 +86,16 @@ module.exports = {
         }]
     },
     plugins: [
+        new CleanWebpackPlugin(['build'], {
+            root: path.resolve(__dirname, '../'),
+            verbose: true,
+            dry: false,
+            exclude: ['']
+        }),
         // This helps ensure the builds are consistent if source hasn't changed:
         // new webpack.optimize.OccurrenceOrderPlugin(),
         // Try to dedupe duplicated modules, if any:
+
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
