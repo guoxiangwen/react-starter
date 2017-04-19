@@ -5,25 +5,10 @@
 
   <testsuite name="test"
     errors="1" failures="0" hostname="" id="" package="test" skipped="0"
-    tests="1" time="0.01600" timestamp="Mon, 13 Mar 2017 07:30:53 GMT">
+    tests="1" time="0.02200" timestamp="Thu, 16 Mar 2017 02:38:04 GMT">
   
-    <testcase name="主页测试" classname="test" time="0.01600" assertions="0">
+    <testcase name="主页测试" classname="test" time="0.02200" assertions="0">
     </testcase>
-      <system-err>
-          Error while running [Test / 主页测试]:
-
-  TypeError: browser.url(...).waitForElementVisible(...).assert.elementPresent(...).assert.elementCount is not a function
-    at Object._ [as 主页测试] (G:/workspace/github/react-starter/test/e2e/specs/test.js:16:21)
-    at Module.call (G:\workspace\github\react-starter\node_modules\nightwatch\lib\runner\module.js:62:34)
-    at G:\workspace\github\react-starter\node_modules\nightwatch\lib\runner\testcase.js:70:29
-    at _fulfilled (G:\workspace\github\react-starter\node_modules\q\q.js:834:54)
-    at self.promiseDispatch.done (G:\workspace\github\react-starter\node_modules\q\q.js:863:30)
-    at Promise.promise.promiseDispatch (G:\workspace\github\react-starter\node_modules\q\q.js:796:13)
-    at G:\workspace\github\react-starter\node_modules\q\q.js:556:49
-    at runSingle (G:\workspace\github\react-starter\node_modules\q\q.js:137:13)
-    at flush (G:\workspace\github\react-starter\node_modules\q\q.js:125:13)
-    at _combinedTickCallback (internal/process/next_tick.js:67:7)
-      </system-err>
   
   
   </testsuite>
