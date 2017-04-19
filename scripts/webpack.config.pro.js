@@ -92,15 +92,17 @@ module.exports = {
             dry: false,
             exclude: ['']
         }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
         // This helps ensure the builds are consistent if source hasn't changed:
         // new webpack.optimize.OccurrenceOrderPlugin(),
         // Try to dedupe duplicated modules, if any:
 
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 screw_ie8: true,
-                warnings: false
             },
             mangle: {
                 screw_ie8: true
