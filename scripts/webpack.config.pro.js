@@ -60,8 +60,6 @@ module.exports = {
                 }],
                 publicPath: "/build"
             })
-
-
         }, {
             test: /\.less$/,
             loader: ExtractTextPlugin.extract({
