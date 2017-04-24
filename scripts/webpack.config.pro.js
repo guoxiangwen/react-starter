@@ -8,7 +8,7 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 
-const vendors = ['react', 'react-dom']
+const vendors = ['react', 'react-dom'];
 module.exports = {
     devServer: {
         hot: true,
