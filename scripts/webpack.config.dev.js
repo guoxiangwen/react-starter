@@ -22,8 +22,8 @@ module.exports = {
         historyApiFallback: true,
         clientLogLevel: "none",
         proxy: {
-            '/sms-web/*': {
-                target: 'http://localhost:9099',
+            '/api/*': {
+                target: 'http://localhost:9099',// when request /api/xx/xxx proxy to http://localhost:9099/api/xx/xxx
                 changeOrigin: true,
                 secure: false
             }
@@ -33,14 +33,17 @@ module.exports = {
     entry: {
         app: "./src/main.js", //
         vendors: vendors //第三方库
-    }, //入口文件
+    }, 
     output: {
         path: path.join(__dirname, "src"),
         publicPath: "",
         filename: "[name].bundle.js"
     },
     resolve: {
-        extensions: [".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        extensions: [".js", ".jsx", ".tsx", ".ts"], //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        alias: {
+            '~': path.resolve(__dirname, 'src')
+        }
     },
     module: {
         //各种加载器，即让各种文件格式可用require引用
@@ -55,17 +58,28 @@ module.exports = {
             test: /\.css$/,
             exclude: "/node_modules/",
             // loader: ExtractTextPlugin.extract("css-loader")
-            use: [
-                { loader: "style-loader" },
-                { loader: "css-loader" }
+            use: [{
+                    loader: "style-loader"
+                },
+                {
+                    loader: "css-loader"
+                },
+                {
+                    loader: "postcss-loader"
+                },
             ]
 
         }, {
             test: /\.less$/,
-            use: [
-                { loader: "style-loader" },
-                { loader: "css-loader" },
-                { loader: "less-loader" },
+            use: [{
+                    loader: "style-loader"
+                },
+                {
+                    loader: "css-loader"
+                },
+                {
+                    loader: "less-loader"
+                },
             ]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

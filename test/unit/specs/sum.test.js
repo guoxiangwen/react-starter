@@ -1,4 +1,4 @@
-import sum from './../../../src/utils/sum';
+import sum from 'utils/sum';
 
 describe('add', () => {
     it('加法测试:', () => {

@@ -4,23 +4,11 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let ManifestPlugin = require('webpack-manifest-plugin');
-let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 
 const vendors = ['react', 'react-dom'];
 module.exports = {
-    devServer: {
-        hot: true,
-        contentBase: "./build",
-        proxy: {
-            '/sms-web/*': {
-                target: 'http://172.17.122.124:9099',
-                changeOrigin: true,
-                secure: false
-            }
-        }
-    },
     devtool: "source-map", //生成sourcemap,便于开发调试
     //入口文件
     entry: {
@@ -84,12 +72,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new CleanWebpackPlugin(['build'], {
-            root: path.resolve(__dirname, '../'),
-            verbose: true,
-            dry: false,
-            exclude: ['']
-        }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
