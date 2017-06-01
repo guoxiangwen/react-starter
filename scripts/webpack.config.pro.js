@@ -13,7 +13,7 @@ module.exports = {
     //入口文件
     entry: {
         app: "./src/main.js",
-        vendors: vendors //第三方库
+        // vendors: vendors //第三方库
     },
     //输入文件
     output: {
@@ -23,7 +23,15 @@ module.exports = {
         chunkFilename: "static/js/[name].[chunkhash:8].bundle.js"
     },
     resolve: {
-        extensions: [".js", ".jsx", ".tsx", ".ts"] //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        extensions: [".js", ".jsx", ".tsx", ".ts"], //resolve.extensions 用于指明程序自动补全识别哪些后缀,
+        alias: {
+            '@': path.resolve(__dirname, '../src/')
+        },
+    },
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        "react-router": "ReactRouter",
     },
     module: {
         //各种加载器，即让各种文件格式可用require引用
@@ -54,11 +62,16 @@ module.exports = {
                 fallback: 'style-loader',
                 use: [{
                         loader: 'css-loader',
-                        options: { sourceMap: true, minimize: true }
+                        options: {
+                            sourceMap: true,
+                            minimize: true
+                        }
                     },
                     {
                         loader: 'less-loader',
-                        options: { sourceMap: 'compressed' }
+                        options: {
+                            sourceMap: 'compressed'
+                        }
                     }
                 ]
             })
@@ -103,7 +116,9 @@ module.exports = {
             inject: true,
             template: 'src/index.template.html',
             // title: 'fuck',
-            chunks: ['app', 'vendors'],
+            // chunks: ['app', 'vendors'],
+            chunks: ['app'],
+            
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,

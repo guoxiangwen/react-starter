@@ -23,7 +23,7 @@ module.exports = {
         clientLogLevel: "none",
         proxy: {
             '/api/*': {
-                target: 'http://localhost:9099',// when request /api/xx/xxx proxy to http://localhost:9099/api/xx/xxx
+                target: 'http://localhost:9099', // when request /api/xx/xxx proxy to http://localhost:9099/api/xx/xxx
                 changeOrigin: true,
                 secure: false
             }
@@ -32,8 +32,8 @@ module.exports = {
     },
     entry: {
         app: "./src/main.js", //
-        vendors: vendors //第三方库
-    }, 
+        // vendors: vendors //第三方库
+    },
     output: {
         path: path.join(__dirname, "src"),
         publicPath: "",
@@ -42,8 +42,13 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", ".tsx", ".ts"], //resolve.extensions 用于指明程序自动补全识别哪些后缀,
         alias: {
-            '~': path.resolve(__dirname, 'src')
-        }
+            '@': path.resolve(__dirname, '../src/')
+        },
+    },
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        "react-router": "ReactRouter",
     },
     module: {
         //各种加载器，即让各种文件格式可用require引用
@@ -106,10 +111,10 @@ module.exports = {
             },
             except: ['$super', '$', 'exports', 'require'] //排除关键字
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendors'],
-            filename: "vendors.bundle.js",
-            minChunks: Infinity
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ['vendors'],
+        //     filename: "vendors.bundle.js",
+        //     minChunks: Infinity
+        // }),
     ]
 };
