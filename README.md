@@ -8,6 +8,7 @@
 
 * 1.安装nodejs[传送门](https://nodejs.org/en/)
 * 2.设置淘宝镜像(`npm config set registry https://registry.npm.taobao.org`翻墙的话，可以忽略)
+* 3.安装docker.
 
 ## Build Setup
 
