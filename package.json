@@ -11,7 +11,8 @@
     "unit": "jest",
     "test": "jest",
     "build": "rimraf build && webpack --config ./scripts/webpack.config.pro.js  --display-error-details --progress --color",
-    "start": "webpack-dev-server  --config ./scripts/webpack.config.dev.js"
+    "start": "webpack-dev-server  --config ./scripts/webpack.config.dev.js",
+    "deploy": "npm run build && sh scripts/deploy.sh"
   },
   "dependencies": {
     "react": "^15.5.4",

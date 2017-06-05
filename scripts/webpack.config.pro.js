@@ -25,7 +25,7 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", ".tsx", ".ts"], //resolve.extensions 用于指明程序自动补全识别哪些后缀,
         alias: {
-            '@': path.resolve(__dirname, '../src/')
+            '@': path.resolve(__dirname, '../src/') //设置相对路径
         },
     },
     externals: {
@@ -111,14 +111,12 @@ module.exports = {
             disable: false,
             allChunks: true
         }),
-        // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'static/js/[name].[chunkhash:8].bundle.js' }),
         new HtmlWebpackPlugin({
             inject: true,
             template: 'src/index.template.html',
             // title: 'fuck',
             // chunks: ['app', 'vendors'],
             chunks: ['app'],
-            
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,

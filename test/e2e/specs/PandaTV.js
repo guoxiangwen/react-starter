@@ -19,8 +19,8 @@ module.exports = {
             //点击登录
             .click(".sidebar-userinfo-login-btn")
             //login
-            .setValue('#ruc_dialog_container input[type=text].ruc-input-login-name', '150-xxxx-xxxx')
-            .setValue('#ruc_dialog_container input[type=password].ruc-input-login-passport', ['your username', browser.Keys.ENTER])
+            .setValue('#ruc_dialog_container input[type=text].ruc-input-login-name', '15008187156')
+            .setValue('#ruc_dialog_container input[type=password].ruc-input-login-passport', ['guoxiangwen', browser.Keys.ENTER])
 
         .waitForElementVisible('ul#later-play-list > li:first-child > a >div.video-cover', 3000)
             .pause(3000)
