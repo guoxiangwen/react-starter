@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import logo from '@/imgs/logo.svg';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import * as logo from "../imgs/logo.svg";
 import './app.less';
-
-
-class App extends Component {
-    constructor(props) {
+// const logo = require("../imgs/logo.svg");
+export interface AppProps {
+}
+class App extends React.Component<AppProps, any> {
+    constructor(props: AppProps) {
         super(props);
     }
     render() {
@@ -23,8 +25,10 @@ class App extends Component {
         );
     }
 }
-class List extends Component {
-    constructor(props) {
+export interface ListProps {
+}
+class List extends React.Component<ListProps, any> {
+    constructor(props: ListProps) {
         super(props);
     }
     render() {
@@ -47,9 +51,7 @@ class List extends Component {
                                     <p>{item.desc}</p>
                                 </a>
                             </section>
-
                         )
-
                     })
                 }
             </div>
@@ -59,9 +61,4 @@ class List extends Component {
         )
     }
 }
-
-App.propTypes = {
-
-};
-
 export default App

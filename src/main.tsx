@@ -1,5 +1,5 @@
-import { render } from 'react-dom';
-import React, { Component } from 'react';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './main.less';
 
@@ -23,8 +23,7 @@ const ROUTER_CONFIG = [{
         component: NotFound //404
     },
 ];
-render(( <
-    Router history = { browserHistory }
+ReactDOM.render(( <Router history = { browserHistory }
     routes = { ROUTER_CONFIG }
     />
 ), document.getElementById('app'));

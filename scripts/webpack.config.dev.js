@@ -31,7 +31,7 @@ module.exports = {
         }
     },
     entry: {
-        app: "./src/main.js", //
+        app: "./src/main.tsx", //
         // vendors: vendors //第三方库
     },
     output: {
@@ -42,7 +42,7 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", ".tsx", ".ts"], //resolve.extensions 用于指明程序自动补全识别哪些后缀,
         alias: {
-            '@': path.resolve(__dirname, '../src/')
+            root: path.resolve(__dirname, '../src/')
         },
     },
     externals: {
@@ -53,46 +53,52 @@ module.exports = {
     module: {
         //各种加载器，即让各种文件格式可用require引用
         rules: [{
-            test: /\.js|jsx$/,
-            loader: "babel-loader",
-            exclude: "/node_modules/",
-            options: {
-                presets: ['es2015', 'react']
-            }
-        }, {
-            test: /\.css$/,
-            exclude: "/node_modules/",
-            // loader: ExtractTextPlugin.extract("css-loader")
-            use: [{
-                    loader: "style-loader"
-                },
-                {
-                    loader: "css-loader"
-                },
-                {
-                    loader: "postcss-loader"
-                },
-            ]
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+                exclude: "/node_modules/",
+            },
+            {
+                test: /\.js|jsx$/,
+                loader: "babel-loader",
+                exclude: "/node_modules/",
+                options: {
+                    presets: ['es2015', 'es2016', 'es2017', 'react']
+                }
+            }, {
+                test: /\.css$/,
+                exclude: "/node_modules/",
+                // loader: ExtractTextPlugin.extract("css-loader")
+                use: [{
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "postcss-loader"
+                    },
+                ]
 
-        }, {
-            test: /\.less$/,
-            use: [{
-                    loader: "style-loader"
-                },
-                {
-                    loader: "css-loader"
-                },
-                {
-                    loader: "less-loader"
-                },
-            ]
-        }, {
-            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            loader: "url-loader",
-            query: {
-                limit: 10000
+            }, {
+                test: /\.less$/,
+                use: [{
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "less-loader"
+                    },
+                ]
+            }, {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: "url-loader",
+                query: {
+                    limit: 10000
+                }
             }
-        }]
+        ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
