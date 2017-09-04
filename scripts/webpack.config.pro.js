@@ -12,7 +12,7 @@ module.exports = {
     devtool: "source-map", //生成sourcemap,便于开发调试
     //入口文件
     entry: {
-        app: "./src/main.js",
+        app: "./src/main.jsx",
         // vendors: vendors //第三方库
     },
     //输入文件
@@ -88,6 +88,10 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
+        }),
+        new webpack.ProvidePlugin({
+            React: 'react',
+            ReactDOM: 'react-dom'
         }),
         // This helps ensure the builds are consistent if source hasn't changed:
         // new webpack.optimize.OccurrenceOrderPlugin(),
