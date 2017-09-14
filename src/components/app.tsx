@@ -1,6 +1,6 @@
 import * as React from "react";
 import List from './list';
-import './app.less'
+import './app.less';
 // import logo  from './logo.svg';
 export interface HelloProps { compiler: string; framework: string }
 

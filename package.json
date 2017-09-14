@@ -1,69 +1,69 @@
 {
-  "name": "ts-react-starter",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --config ./scripts/webpack.config.dev.js --color",
-    "dev:build": "webpack --config ./scripts/webpack.config.dev.js  --display-error-details --display-optimization-bailout  --progress --color -w",
-    "dev:server": "node ./run.js",
-    "build": "webpack --config ./scripts/webpack.config.pro.js  --display-error-details --display-optimization-bailout  --progress --color -p",
-    "test": "jest"
-  },
-  "author": "harry",
-  "license": "ISC",
-  "dependencies": {
-    "@types/react": "^16.0.3",
-    "@types/react-dom": "^15.5.4",
-    "axios": "^0.16.2",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "awesome-typescript-loader": "^3.2.3",
-    "body-parser": "^1.17.2",
-    "clean-webpack-plugin": "^0.1.16",
-    "cookie-parser": "^1.4.3",
-    "css-loader": "^0.28.5",
-    "debug": "^3.0.1",
-    "ejs": "^2.5.7",
-    "enzyme": "^2.9.1",
-    "express": "^4.15.4",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^2.30.1",
-    "jest": "^20.0.4",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
-    "morgan": "^1.8.2",
-    "serve-favicon": "^2.4.3",
-    "source-map-loader": "^0.2.1",
-    "style-loader": "^0.18.2",
-    "typescript": "^2.4.2",
-    "url-loader": "^0.5.9",
-    "webpack": "^3.5.5",
-    "webpack-browser-plugin": "^1.0.20",
-    "webpack-dev-server": "^2.7.1",
-    "webpack-manifest-plugin": "^1.3.1"
-  },
-  "jest": {
-    "verbose": true,
-    "bail": true,
-    "automock": true,
-    "notify": true,
-    "modulePaths": [
-      "src"
-    ],
-    "collectCoverage": true,
-    "coverageDirectory": "test/unit/coverage",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/e2e/"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/test/e2e/"
-    ]
-  }
+    "name": "ts-react-starter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --config ./scripts/webpack.config.dev.js --color",
+        "dev:build": "webpack --config ./scripts/webpack.config.dev.js  --display-error-details --display-optimization-bailout  --progress --color -w",
+        "dev:server": "node ./run.js",
+        "build": "webpack --config ./scripts/webpack.config.pro.js  --display-error-details --display-optimization-bailout  --progress --color -p",
+        "test": "jest"
+    },
+    "author": "harry",
+    "license": "ISC",
+    "dependencies": {
+        "@types/react": "^16.0.3",
+        "@types/react-dom": "^15.5.4",
+        "axios": "^0.16.2",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.1.2",
+        "awesome-typescript-loader": "^3.2.3",
+        "body-parser": "^1.17.2",
+        "clean-webpack-plugin": "^0.1.16",
+        "cookie-parser": "^1.4.3",
+        "css-loader": "^0.28.5",
+        "debug": "^3.0.1",
+        "ejs": "^2.5.7",
+        "enzyme": "^2.9.1",
+        "express": "^4.15.4",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "file-loader": "^0.11.2",
+        "html-webpack-plugin": "^2.30.1",
+        "jest": "^20.0.4",
+        "less": "^2.7.2",
+        "less-loader": "^4.0.5",
+        "morgan": "^1.8.2",
+        "serve-favicon": "^2.4.3",
+        "source-map-loader": "^0.2.1",
+        "style-loader": "^0.18.2",
+        "typescript": "^2.4.2",
+        "url-loader": "^0.5.9",
+        "webpack": "^3.5.5",
+        "webpack-browser-plugin": "^1.0.20",
+        "webpack-dev-server": "^2.7.1",
+        "webpack-manifest-plugin": "^1.3.1"
+    },
+    "jest": {
+        "verbose": true,
+        "bail": true,
+        "automock": true,
+        "notify": true,
+        "modulePaths": [
+            "src"
+        ],
+        "collectCoverage": true,
+        "coverageDirectory": "test/unit/coverage",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "/test/e2e/"
+        ],
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/test/e2e/"
+        ]
+    }
 }
